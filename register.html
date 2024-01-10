@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="mulah_logo.b8ce4c8e.png" alt="Description of the image">
+        <br>
+        <h2>Registration</h2>
+        <i>Please fill up your details.</i>
+        <br>
+        <br>
+
+        <!-- Name input -->
+        <form id="page2Form" action="page3.html" method="post">
+            <label for="name">Name:</label>
+            <br>
+            <input type="text" id="name" name="name" placeholder="Enter Name" required>
+            <br>
+            <span id="nameMessage" style="color: red;"></span>
+            <br>
+
+            <!-- Birthday input -->
+            <label for="day">Birthday:</label>
+            <br>
+            <input type="text" id="day" name="day" placeholder="DD" required>
+            <input type="text" id="month" name="month" placeholder="MM" required>
+            <input type="text" id="year" name="year" placeholder="YYYY" required>
+            <br>
+            <span id="birthdayMessage" style="color: red;"></span>
+            <br>
+
+            <!-- Email input -->
+            <label for="email">Email:</label>
+            <br>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+            <br>
+            <span id="emailMessage" style="color: red;"></span>
+            <br>
+
+            <!-- No email checkbox -->
+            <input type="checkbox" id="noEmail" name="noEmail">
+            <label for="noEmail">No email address</label>
+            
+            <br>
+            <br>
+
+            <!-- Continue button -->
+            <button type="button" class="orange-button" onclick="validateAndSubmit()">Continue</button>
+        </form>
+    </div>
+    <hr>
+    <footer>
+        Powered by <a href="https://www.mulahrewards.com/">MulahRewards.com</a>
+    </footer>
+
+    <script>
+        function validateAndSubmit() {
+            // Clear previous messages
+            document.getElementById("nameMessage").innerHTML = "";
+            document.getElementById("birthdayMessage").innerHTML = "";
+            document.getElementById("emailMessage").innerHTML = "";
+
+            // Validate Name
+            var nameInput = document.getElementById("name").value;
+            if (nameInput.trim() === "") {
+                document.getElementById("nameMessage").innerHTML = "*Please insert a name.";
+                return;
+            }
+
+            // Validate Birthday
+            var dayInput = document.getElementById("day").value;
+            var monthInput = document.getElementById("month").value;
+            var yearInput = document.getElementById("year").value;
+            if (dayInput.trim() === "" || monthInput.trim() === "" || yearInput.trim() === "") {
+                document.getElementById("birthdayMessage").innerHTML = "*Please insert your birthday.";
+                return;
+            }
+
+            // Validate Email
+            var emailInput = document.getElementById("email").value;
+            var noEmailCheckbox = document.getElementById("noEmail");
+            if (emailInput.trim() === "" && !noEmailCheckbox.checked) {
+                document.getElementById("emailMessage").innerHTML = "*Please insert a valid email address.";
+                return;
+            }
+
+            // Store the data in localStorage
+            localStorage.setItem("name", nameInput);
+            localStorage.setItem("birthday", `${dayInput}/${monthInput}/${yearInput}`);
+            localStorage.setItem("email", emailInput);
+
+            // Redirect to Page 3
+            window.location.href = "page3.html";
+        }
+    </script>
+
+<script>
+    // Retrieve data from localStorage
+    var storedCountryCode = localStorage.getItem("countryCode");
+    var storedPhoneNumber = localStorage.getItem("phoneNumber");
+
+    // Set hidden fields in the form
+    document.getElementById("countryCode").value = storedCountryCode;
+    document.getElementById("phoneNumber").value = storedPhoneNumber;
+</script>
+</body>
+</html>

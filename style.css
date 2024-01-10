@@ -1,0 +1,69 @@
+/* style.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 640px;
+    height: 1136px;
+    background-color: #f0f0f0; /* Set your preferred background color */
+}
+
+.container {
+    box-sizing: border-box;
+    padding: 20px; /* Add padding or adjust as needed */
+    text-align: left; /* Align text to the left within the container */
+}
+
+img {
+    max-width: 30%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+/* Add your additional styles here */
+
+@media screen and (max-width: 640px) {
+    body {
+        width: 100%;
+        height: 100%;
+    }
+    .container {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    color: #333; /* Set your preferred text color */
+}
+
+footer a {
+    text-decoration: none; /* Remove underline from the link */
+    color: blue; /* Set the link color to blue */
+}
+
+.orange-button {
+    background-color: orange;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px; /* Adjust the value as needed */
+    cursor: pointer;
+}
+
+
+#phoneNumber, #countryCode {
+    border: none;
+    outline: none; /* Remove the default focus outline if needed */
+    height: 40px; /* Adjust the height as needed */
+    border-radius: 10px; /* Adjust the value as needed */
+}
+
+#name, #day, #month, #year, #email{
+    border: none;
+    outline: none; /* Remove the default focus outline if needed */
+    height: 40px; /* Adjust the height as needed */
+    border-radius: 10px; /* Adjust the value as needed */
+}

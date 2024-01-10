@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="mulah_logo.b8ce4c8e.png" alt="Description of the image">
+        <br>
+        <h2>User Data</h2>
+        <p>Here is the data you entered:</p>
+
+        <p><strong>Name:</strong> <span id="displayName"></span></p>
+        <p><strong>Birthday:</strong> <span id="displayBirthday"></span></p>
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+        <p><strong>Country Code:</strong> <span id="displayCountryCode"></span></p>
+        <p><strong>Phone Number:</strong> <span id="displayPhoneNumber"></span></p>
+    </div>
+    <hr>
+    <footer>
+        Powered by <a href="https://www.mulahrewards.com/">MulahRewards.com</a>
+    </footer>
+
+    <script>
+        // Retrieve data from localStorage
+        var storedName = localStorage.getItem("name");
+        var storedBirthday = localStorage.getItem("birthday");
+        var storedEmail = localStorage.getItem("email");
+        var storedCountryCode = localStorage.getItem("countryCode");
+        var storedPhoneNumber = localStorage.getItem("phoneNumber");
+
+        // Display the data on the page
+        document.getElementById("displayName").innerText = storedName || "N/A";
+        document.getElementById("displayBirthday").innerText = storedBirthday || "N/A";
+        document.getElementById("displayEmail").innerText = storedEmail || "N/A";
+        document.getElementById("displayCountryCode").innerText = storedCountryCode || "N/A";
+        document.getElementById("displayPhoneNumber").innerText = storedPhoneNumber || "N/A";
+    </script>
+</body>
+</html>
